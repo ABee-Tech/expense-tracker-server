@@ -50,6 +50,8 @@
     "!*/__tests__"
   ],
   "dependencies": {
+    "@loopback/authentication": "^8.0.0",
+    "@loopback/authentication-jwt": "^0.10.0",
     "@loopback/boot": "^4.0.0",
     "@loopback/core": "^3.0.0",
     "@loopback/repository": "^4.0.0",
