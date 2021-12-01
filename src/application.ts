@@ -29,6 +29,14 @@ export class ExpenseTrackerApplication extends BootMixin(
     // Set up default home page
     this.static('/', path.join(__dirname, '../public'));
 
+
+    // Mount authentication system
+    this.component(AuthenticationComponent);
+    // Mount jwt component
+    this.component(JWTAuthenticationComponent);
+    // Bind datasource
+    this.dataSource(DbDataSource, UserServiceBindings.DATASOURCE_NAME);
+
     // Customize @loopback/rest-explorer configuration here
     this.configure(RestExplorerBindings.COMPONENT).to({
       path: '/explorer',
@@ -46,12 +54,6 @@ export class ExpenseTrackerApplication extends BootMixin(
       },
     };
 
-    // Mount authentication system
-    this.component(AuthenticationComponent);
-    // Mount jwt component
-    this.component(JWTAuthenticationComponent);
-    // Bind datasource
-    this.dataSource(DbDataSource, UserServiceBindings.DATASOURCE_NAME);
 
   }
 }
